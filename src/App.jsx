@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Navigation from "./routes/navigation";
+import Navigation from "./components/nav-bar";
+
 import Home from "./routes/home";
 import Shop from "./routes/shop";
-import SignIn from "./routes/sign-in/SignIn";
+import Auth from "./routes/authentication/auth";
 
 const categories = [
   {
@@ -46,8 +47,8 @@ const router = createBrowserRouter([
         element: <Shop />,
       },
       {
-        path: "sign-in",
-        element: <SignIn />,
+        path: "auth",
+        element: <Auth />,
       },
     ],
   },
