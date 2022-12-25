@@ -4,10 +4,9 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
+import "./sign-up.style.scss";
 import FormInput from "../form-input/form-input";
 import Button from "../Button/button";
-
-import "./sign-up.style.scss";
 
 function SignUpForm() {
   const [formFields, setFormFields] = useState({
