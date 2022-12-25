@@ -14,7 +14,7 @@ import "./navigation.style.scss";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
 
   const handleSignOut = async () => {
     await signOutAuth();
@@ -41,7 +41,10 @@ const Navigation = () => {
             </Link>
           )}
 
-          <CartIcon handleOpen={() => setIsCartOpen(!isCartOpen)} />
+          <CartIcon
+            handleOpen={() => setIsCartOpen(!isCartOpen)}
+            totalCartItem={cartCount}
+          />
         </div>
         {isCartOpen && <CartDropdown />}
       </div>
