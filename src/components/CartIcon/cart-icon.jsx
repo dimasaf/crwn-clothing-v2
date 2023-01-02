@@ -1,12 +1,12 @@
 import { ReactComponent as CartIcons } from "../../assets/shopping-bag.svg";
-import "./cart-icon.styles.scss";
+import { CartIconContainer, ItemCount } from "./cart-icon.styles";
 
 function CartIcon({ handleOpen, totalCartItem }) {
   return (
-    <div className="cart-icon-container" onClick={handleOpen}>
+    <CartIconContainer onClick={handleOpen}>
       <CartIcons className="shopping-icon" />
-      <span className="item-count">{totalCartItem}</span>
-    </div>
+      <ItemCount>{totalCartItem}</ItemCount>
+    </CartIconContainer>
   );
 }
 

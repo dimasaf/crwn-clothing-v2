@@ -3,7 +3,8 @@ import Navigation from "./components/nav-bar";
 
 import Home from "./routes/home";
 import Shop from "./routes/shop";
-import Auth from "./routes/authentication/auth";
+import Auth from "./routes/authentication";
+import Checkout from "./routes/checkout";
 
 const categories = [
   {
@@ -43,12 +44,16 @@ const router = createBrowserRouter([
         element: <Home categories={categories} />,
       },
       {
-        path: "shop",
+        path: "shop/*",
         element: <Shop />,
       },
       {
         path: "auth",
         element: <Auth />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
       },
     ],
   },

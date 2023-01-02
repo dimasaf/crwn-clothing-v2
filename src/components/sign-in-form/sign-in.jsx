@@ -81,7 +81,7 @@ function SignInForm() {
           <Button type="submit"> Sign In </Button>
           <Button
             type="button"
-            buttonType="google"
+            buttonType="google-sign-in"
             onClick={handleSignInGoogle}
           >
             Google Sign In
