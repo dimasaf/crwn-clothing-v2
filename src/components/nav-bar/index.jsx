@@ -1,25 +1,35 @@
-import { useContext } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import { Outlet, Link } from "react-router-dom";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import { UserContext } from "../../context/user.context";
-import { CartContext } from "../../context/cart.context";
 
 import { signOutAuth } from "../../utils/firebase/firebase.utils";
 
 import CartIcon from "../CartIcon/cart-icon";
 import CartDropdown from "../cart-dropdown/cart-dropdown";
 
+import { selectCurrentUser } from "../../store/user/user.selector";
+import {
+  selectIsCartOpen,
+  selectCartCount,
+} from "../../store/cart/cart.selector";
+import { setIsCartOpen } from "../../store/cart/cart.action";
+
 // import "./navigation.style.scss";
 import { NavigationBar, Navlink, NavlinkContainer } from "./navigation.style";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
-  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
+  const dispatch = useDispatch();
+  const isCartOpen = useSelector(selectIsCartOpen);
+  const currentUser = useSelector(selectCurrentUser);
+  const cartCount = useSelector(selectCartCount);
 
   const handleSignOut = async () => {
     await signOutAuth();
   };
+
+  console.warn(currentUser);
 
   return (
     <>
@@ -39,7 +49,7 @@ const Navigation = () => {
           )}
 
           <CartIcon
-            handleOpen={() => setIsCartOpen(!isCartOpen)}
+            handleOpen={() => dispatch(setIsCartOpen(!isCartOpen))}
             totalCartItem={cartCount}
           />
         </NavlinkContainer>
