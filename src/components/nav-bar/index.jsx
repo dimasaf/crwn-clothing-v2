@@ -29,8 +29,6 @@ const Navigation = () => {
     await signOutAuth();
   };
 
-  console.warn(currentUser);
-
   return (
     <>
       <NavigationBar>

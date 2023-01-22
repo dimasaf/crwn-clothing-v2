@@ -5,7 +5,6 @@ import {
 } from "./category-item.style.js";
 
 const CategoryItem = ({ categories }) => {
-  console.warn(categories);
   return (
     <CategoryContainer>
       {/* <div
